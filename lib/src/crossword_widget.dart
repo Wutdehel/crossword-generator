@@ -7,11 +7,13 @@ class CrosswordWidget extends StatefulWidget {
   final List<Map<String, dynamic>> words;
   final CrosswordStyle style;
   final Function(Function) onRevealCurrentCellLetter;
+  final VoidCallback? onCrosswordCompleted;
 
   CrosswordWidget({
     required this.words,
     this.style = const CrosswordStyle(),
     required this.onRevealCurrentCellLetter,
+    this.onCrosswordCompleted,
   });
 
   @override
@@ -336,7 +338,11 @@ class _CrosswordWidgetState extends State<CrosswordWidget> {
       }
     }
     if (_areAllWordsCompleted()) {
-      _showCongratsDialog();
+      if (widget.onCrosswordCompleted != null) {
+        widget.onCrosswordCompleted!(); // Call the completion callback
+      } else {
+        _showCongratsDialog();
+      }
     }
   }
 
