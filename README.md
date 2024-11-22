@@ -10,6 +10,7 @@ A Flutter library for generating and displaying interactive crossword puzzles. C
 - Reveal letters or entire words.
 - Automatically validate and highlight completed words.
 - Navigate between words using buttons.
+- Expose completion event to notify when the crossword is fully completed.
 
 ## Installation
 
@@ -139,6 +140,26 @@ class _CrosswordHomePageState extends State<CrosswordHomePage> {
                             onRevealCurrentCellLetter: (revealCurrentCellLetter) {
                               _revealCurrentCellLetter = revealCurrentCellLetter;
                             },
+                            onCrosswordCompleted: () {
+                              // Handle crossword completion
+                              showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    title: Text('Congratulations!'),
+                                    content: Text('You have completed the crossword puzzle.'),
+                                    actions: [
+                                      TextButton(
+                                        child: Text('OK'),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
                           ),
                         ),
                       ),
@@ -196,6 +217,26 @@ CrosswordWidget(
   ),
   onRevealCurrentCellLetter: (revealCurrentCellLetter) {
     _revealCurrentCellLetter = revealCurrentCellLetter;
+  },
+  onCrosswordCompleted: () {
+    // Handle crossword completion
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Congratulations!'),
+          content: Text('You have completed the crossword puzzle.'),
+          actions: [
+            TextButton(
+              child: Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   },
 );
 ```
