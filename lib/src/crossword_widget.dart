@@ -114,8 +114,12 @@ class _CrosswordWidgetState extends State<CrosswordWidget> {
 
       _highlightedWordDescription = _getWordDescription(row, col, _isHorizontal);
 
+      // Ensure focus is set to the input field
       FocusScope.of(context).requestFocus(_focusNode);
       SystemChannels.textInput.invokeMethod('TextInput.show');
+
+      // Clear the input controller
+      _inputController.clear();
     });
   }
 
