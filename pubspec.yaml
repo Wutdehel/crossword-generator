@@ -1,6 +1,6 @@
 name: crossword_generator
 description: A Dart library for generating crossword puzzles.
-version: 1.0.0
+version: 1.1.0
 homepage: https://github.com/speakm/crossword-generator
 repository: https://github.com/speakm/crossword-generator
 issue_tracker: https://github.com/speakm/crossword-generator/issues
