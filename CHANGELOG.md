@@ -1,3 +1,7 @@
+## 1.2.1
+
+- Adding number feedback to builder
+
 ## 1.2.0
 
 - Fixed a bug where tapping on the keyboard before selecting a cell would deactivate input for cells.
