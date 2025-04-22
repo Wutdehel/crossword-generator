@@ -1,3 +1,7 @@
+## 1.2.2
+
+- Adding number cells
+
 ## 1.2.1
 
 - Adding number feedback to builder
