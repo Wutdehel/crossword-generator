@@ -1,6 +1,11 @@
 ## 1.2.2
 
-- Adding number cells
+- Adding ontapp add on
+
+
+## 1.2.2
+
+- Adding number
 
 ## 1.2.1
 

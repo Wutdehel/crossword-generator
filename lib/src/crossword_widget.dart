@@ -8,12 +8,14 @@ class CrosswordWidget extends StatefulWidget {
   final CrosswordStyle style;
   final Function(Function) onRevealCurrentCellLetter;
   final VoidCallback? onCrosswordCompleted;
+  final void Function()? addOntap;  
 
   CrosswordWidget({
     required this.words,
     this.style = const CrosswordStyle(),
     required this.onRevealCurrentCellLetter,
     this.onCrosswordCompleted,
+    this.addOntap,
   });
 
   @override
@@ -287,6 +289,9 @@ class _CrosswordWidgetState extends State<CrosswordWidget> {
                     return GestureDetector(
                       onTap: () {
                         _onCellTap(rowIndex, colIndex);
+                        if (widget.addOntap != null) {
+                          widget.addOntap!();
+                        }
                       },
                       child: widget.style.cellBuilder != null
                           ? widget.style.cellBuilder!(
