@@ -7,7 +7,7 @@ class CrosswordStyle {
   final TextStyle cellTextStyle;
   final ButtonStyle descriptionButtonStyle;
   final Widget Function(BuildContext context, String cell, bool isSelected,
-      bool isHighlighted, bool isCompleted, List<int> numbers)? cellBuilder;
+      bool isHighlighted, bool isCompleted, List<int> numbers, List<int> questionNumber)? cellBuilder;
 
   const CrosswordStyle({
     this.currentCellColor = const Color.fromARGB(255, 84, 255, 129),

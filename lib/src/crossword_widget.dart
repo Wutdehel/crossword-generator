@@ -296,6 +296,7 @@ class _CrosswordWidgetState extends State<CrosswordWidget> {
                               isHighlighted,
                               isCompletedCell,
                               _getCellNumbers(rowIndex, colIndex),
+                              _getRelatedPositions(rowIndex, colIndex),
                             )
                           : Container(
                               width: 30,
@@ -340,6 +341,29 @@ class _CrosswordWidgetState extends State<CrosswordWidget> {
     }
     return numbers;
   }
+
+  List<int> _getRelatedPositions(int row, int col) {
+    List<int> positions = [];
+
+    for (var word in _words) {
+      int startY = word['starty'] - 1;
+      int startX = word['startx'] - 1;
+      int length = word['answer'].length;
+
+      if (word['orientation'] == 'across') {
+        if (startY == row && startX <= col && startX + length > col) {
+          positions.add(word['position']);
+        }
+      } else if (word['orientation'] == 'down') {
+        if (startX == col && startY <= row && startY + length > row) {
+          positions.add(word['position']);
+        }
+      }
+    }
+
+    return positions;
+  }
+
 
   void _validateWord() {
     for (var word in _words) {
