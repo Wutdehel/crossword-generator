@@ -352,11 +352,11 @@ class _CrosswordWidgetState extends State<CrosswordWidget> {
 
       if (word['orientation'] == 'across') {
         if (startY == row && startX <= col && startX + length > col) {
-          positions.add(word['position']);
+          positions.add(word['number']);
         }
       } else if (word['orientation'] == 'down') {
         if (startX == col && startY <= row && startY + length > row) {
-          positions.add(word['position']);
+          positions.add(word['number']);
         }
       }
     }
